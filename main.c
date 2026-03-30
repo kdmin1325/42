@@ -160,3 +160,4 @@ int main(int argc, char **argv)
 }
 
 //gcc main.c -I./minilibx-linux -L ./minilibx-linux -lmlx -lXext -lX11 -lm; ./a.out
+//gcc main.c -I./minilibx -L ./minilibx -lmlx -framework OpenGL -framework AppKit; ./a.out
