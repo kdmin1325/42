@@ -6,7 +6,7 @@
 /*   By: dongkim2 <dongkim2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 03:05:46 by dongkim2          #+#    #+#             */
-/*   Updated: 2026/04/06 05:48:12 by dongkim2         ###   ########.fr       */
+/*   Updated: 2026/04/07 21:00:43 by dongkim2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ void	ft_make_fratol(t_win *mlx, size_t zoom, double x, double y)
 	i = 0;
 	j = 0;
 	mlx->old_img = mlx->img;
-	mlx->img = mlx_new_image(mlx->mlx, win_x, win_y);
+	mlx->img = mlx_new_image(mlx->mlx, WIN_X, WIN_Y);
 	mlx->addr = mlx_get_data_addr(mlx->img, &mlx->bpix, &mlx->line, &mlx->edi);
-	while (i < win_x)
+	while (i < WIN_X)
 	{
-		while (j < win_y)
+		while (j < WIN_Y)
 		{
 			ft_pixel_put(mlx, i, j, pixel_render(i + x, j + y, zoom, mlx));
 			j++;
@@ -44,9 +44,9 @@ int	pixel_render(double r, double i, size_t zoom, t_win *num)
 	double	temp;
 
 	t = 0;
-	r = (r - half_x) / (zoom + base);
+	r = (r - HALF_X) / (zoom + BASE);
 	local_r = r * (num->c_real == 0 && num->c_imagin == 0);
-	i = (i - half_y) / (zoom + base);
+	i = (i - HALF_Y) / (zoom + BASE);
 	local_i = i * (num->c_real == 0 && num->c_imagin == 0);
 	if (is_pass(r, i) && num->c_real == 0 && num->c_imagin == 0)
 		return (ft_color_set(0, 0) + 100);

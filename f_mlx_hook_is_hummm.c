@@ -6,7 +6,7 @@
 /*   By: dongkim2 <dongkim2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 03:08:39 by dongkim2          #+#    #+#             */
-/*   Updated: 2026/04/06 06:02:30 by dongkim2         ###   ########.fr       */
+/*   Updated: 2026/04/07 21:01:44 by dongkim2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ int	mouse_hook(int button, int x, int y, void *param)
 
 	mlx = (t_win *)param;
 	mlx->depth += ((button == 1) * 10 - (button == 3) * 10);
-	mlx->zoom_x += (x - half_x) * 0.1 * ((button == 5) || (button == 4));
-	mlx->zoom_y += (y - half_y) * 0.1 * ((button == 5) || (button == 4));
+	mlx->zoom_x += (x - HALF_X) * 0.1 * ((button == 5) || (button == 4));
+	mlx->zoom_y += (y - HALF_Y) * 0.1 * ((button == 5) || (button == 4));
 	mlx->size += 10 * (button == 5);
-	mlx->size -= 10 * (button == 4) * (mlx->size + base > 0);
+	mlx->size -= 10 * (button == 4) * (mlx->size + BASE > 0);
 	ft_make_fratol(mlx, mlx->size, mlx->zoom_x, mlx->zoom_y);
 	return (0);
 }
@@ -45,11 +45,11 @@ int	key_hook(int key_code, void *param)
 	else if (key_code == 99)
 		ft_color_set(100, 1);
 	mlx->size += (key_code == 61) * 10 ;
-	mlx->size -= (key_code == 45) * 10 * (mlx->size + base > 0);
-	mlx->zoom_x -= half_x * 0.1 * (key_code == 65361);
-	mlx->zoom_x += half_x * 0.1 * (key_code == 65363);
-	mlx->zoom_y -= half_y * 0.1 * (key_code == 65362);
-	mlx->zoom_y += half_y * 0.1 * (key_code == 65364);
+	mlx->size -= (key_code == 45) * 10 * (mlx->size + BASE > 0);
+	mlx->zoom_x -= HALF_X * 0.1 * (key_code == 65361);
+	mlx->zoom_x += HALF_X * 0.1 * (key_code == 65363);
+	mlx->zoom_y -= HALF_Y * 0.1 * (key_code == 65362);
+	mlx->zoom_y += HALF_Y * 0.1 * (key_code == 65364);
 	ft_make_fratol(mlx, mlx->size, mlx->zoom_x, mlx->zoom_y);
 	return (0);
 }

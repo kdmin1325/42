@@ -6,7 +6,7 @@
 /*   By: dongkim2 <dongkim2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 04:26:45 by dongkim2          #+#    #+#             */
-/*   Updated: 2026/04/06 06:04:44 by dongkim2         ###   ########.fr       */
+/*   Updated: 2026/04/07 20:58:35 by dongkim2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_color_set(int c, unsigned int flag)
 
 int	ft_change_color(int c)
 {
-	if(c > 10000000)
+	if (c > 10000000)
 		return (0);
 	return (1000);
 }

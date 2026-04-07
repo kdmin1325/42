@@ -6,7 +6,7 @@
 /*   By: dongkim2 <dongkim2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 20:22:19 by dongkim2          #+#    #+#             */
-/*   Updated: 2026/04/06 05:51:10 by dongkim2         ###   ########.fr       */
+/*   Updated: 2026/04/07 20:58:14 by dongkim2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,20 @@
 # include <mlx.h>
 # include <math.h>
 # include <time.h>
-#include "libft/libft.h"
+# include "libft/libft.h"
 
-#define win_x 1000
-#define win_y 1000
-#define half_x 500
-#define half_y 500
-#define base 300
+# define WIN_X 1000
+# define WIN_Y 1000
+# define HALF_X 500
+# define HALF_Y 500
+# define BASE 300
 
 typedef struct s_win
 {
-	void    *img;
-	void    *old_img;
-    char    *addr;
-    int     bpix;
+	void	*img;
+	void	*old_img;
+	char	*addr;
+	int		bpix;
 	int		line;
 	int		edi;
 	void	*mlx;
@@ -48,15 +48,15 @@ typedef struct s_win
 }		t_win;
 
 void	ft_pixel_put(t_win *data, int x, int y, int color);
-int is_pass(double real_num, double imagin_num);
-int	pixel_render(double r, double i, size_t zoom, t_win *num);
-int key_hook(int key_code, void *param);
-int mouse_hook(int button, int x, int y, void *param);
-int close_hook(void *param);
-int ft_color_set(int c, unsigned int flag);
-int	ft_change_color(int c);
+int		is_pass(double real_num, double imagin_num);
+int		pixel_render(double r, double i, size_t zoom, t_win *num);
+int		key_hook(int key_code, void *param);
+int		mouse_hook(int button, int x, int y, void *param);
+int		close_hook(void *param);
+int		ft_color_set(int c, unsigned int flag);
+int		ft_change_color(int c);
 
-int ft_check_run(int i, char **arr, t_win *c_num);
+int		ft_check_run(int i, char **arr, t_win *c_num);
 void	ft_make_fratol(t_win *mlx, size_t state, double x, double y);
-int	ft_outpoint(t_win *mlx);
+int		ft_outpoint(t_win *mlx);
 #endif

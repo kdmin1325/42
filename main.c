@@ -6,7 +6,7 @@
 /*   By: dongkim2 <dongkim2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/04 17:33:24 by dongkim2          #+#    #+#             */
-/*   Updated: 2026/04/06 06:46:54 by dongkim2         ###   ########.fr       */
+/*   Updated: 2026/04/07 21:01:19 by dongkim2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ int	main(int argc, char **argv)
 
 	ft_check_run(argc, argv, &mlx);
 	mlx.mlx = mlx_init();
-	mlx.mlx_win = mlx_new_window(mlx.mlx, win_x, win_y, argv[1]);
-	mlx.img = mlx_new_image(mlx.mlx, win_x, win_y);
+	mlx.mlx_win = mlx_new_window(mlx.mlx, WIN_X, WIN_Y, argv[1]);
+	mlx.img = mlx_new_image(mlx.mlx, WIN_X, WIN_Y);
 	mlx.addr = mlx_get_data_addr(mlx.img, &mlx.bpix, &mlx.line, &mlx.edi);
 	ft_make_fratol(&mlx, 0, 0, 0);
 	mlx_key_hook(mlx.mlx_win, key_hook, &mlx);
@@ -51,6 +51,3 @@ int	main(int argc, char **argv)
 	mlx_hook(mlx.mlx_win, 17, 0, close_hook, &mlx);
 	mlx_loop(mlx.mlx);
 }
-
-//-I./minilibx-linux -L ./minilibx-linux -lmlx -lXext -lX11 -lm; ./a.out
-//-I./minilibx -L ./minilibx -lmlx -framework OpenGL -framework AppKit; ./a.out
